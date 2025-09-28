@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="game-container">
+        <div id="pixel-map">
+            <div class="mario-ground"></div>
+            <div class="mario-cloud" style="top: 30px; left: 100px;"></div>
+            <div class="mario-cloud_2" style="top: 20px; left: 400px;"></div>
+            <div id="pipe-end-1" class="mario-pipe" style="top: 252px; left: 1040px;"></div>
+            <div id="pipe-end-3" class="mario-pipe" style="top: 252px; left: 1px;"></div>
+            <div id="pipe-flower" class="mario-flower" style="top: 194px; left: 26px;"></div>
+            <div id="pipe-end-2" class="mario-pipe" style="top: 252px; left: 245px;"></div>
+            <div class="pointer-wrapper" style="top: 50px; left: 980px;"> 
+              <div id="pointer-text" class="pointer-text">CLICK HERE</div> 
+              <div id="pointer" class="box-pointer"></div> 
+            </div>
+            <div id="character"></div>
+            <div id="about-marker" class="section-marker">
+            <div class="about-label">ABOUT</div>
+            </div>
+            <div id="skills-marker" class="section-marker">
+            <div class="skills-label">SKILLS</div>
+            </div>
+            <div id="projects-marker" class="section-marker">
+            <div class="projects-label">PUBLICATIONS</div>
+            </div>
+            <div id="contact-marker" class="section-marker">
+            <div class="contact-label">CONTACT</div>
+            </div>
+            <div id="credits-marker" class="section-marker">
+            <div class="credits-label">CREDITS</div>
+            </div>
+        </div>
+        <div id="controls-hint">
+        Use arrow keys to move<br>
+        Press <span class="key-label">SPACE</span> to jump
+        </div>
+    </div>
+
+
+    <section id="about">
+        <!-- About content -->
+    </section>
+
+    <section id="skills">
+        <!-- Skills content -->
+    </section>
+
+    <section id="projects">
+        <!-- Projects content -->
+    </section>
+
+    <section id="contact">
+        <!-- Contact content -->
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Retro Popup -->
+    <div id="retro-popup" class="retro-popup">
+        <div class="popup-content">
+            <h3>SECTION FOUND!</h3>
+            <h3>Press ENTER to view</h3>
+            <div class="button-container">
+                <div class="pixel-button active" id="confirm-btn" data-focused="true">[ OK ]</div>
+                <div class="pixel-button" id="cancel-btn">[ CANCEL ]</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me Expanded View -->
+<div id="about-expanded" class="expanded-view" style="display: none;">
+    <div class="retro-about-box">
+        <div class="pixel-avatar-container">
+        <img id="pixel-avatar" src="images/retro_2.png" alt="8-bit portrait"
+                class="pixel-avatar" width="128" height="128">
+        <div class="pixel-frame"></div>
+        </div>
+    
+        <h2 class="retro-about-title">ABOUT_ME.EXE</h2>
+    
+        <div class="about-setting" data-index="0">
+        <span class="label">&gt; NAME</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">Ibrahim Kajo</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+        
+        <div class="about-setting" data-index="1">
+        <span class="label">&gt; LOCATION</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">CIAD Planet</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="2">
+        <span class="label">&gt; PhD IN</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">COMPUTER VISION</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+    
+        <div class="about-setting" data-index="3">
+        <span class="label">&gt; FROM</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">UTP</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="4">
+        <span class="label">&gt; DIPLOME IN</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">MECHATRONICS</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="5">
+        <span class="label">&gt; FROM</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">TISHREEN UNIVERSITY</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="6">
+        <span class="label">&gt; WORK AS</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">ASSISTANT PROFESSOR</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="7">
+        <span class="label">&gt; AT</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">UTBM</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="8">
+        <span class="label">&gt; LANGUAGES</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">English</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+
+        <div class="about-setting" data-index="9">
+        <span class="label">&gt; HOBBIES</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">VIDEO GAMES</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+    
+        <div class="about-setting" data-index="10">
+        <span class="label">&gt; BIO</span>
+        <span class="arrow left">&#9664;</span>
+        <span class="value">Born in pixels, raised in code.</span>
+        <span class="arrow right">&#9654;</span>
+        </div>
+    
+        <div class="pixel-button" id="back-btn">[ SAVE & RETURN ]</div>
+    </div>
+</div>
+      
+
+<!-- Retro Projects Expanded View -->
+<div id="projects-expanded" class="retro-expanded" style="display: none;">
+    <div class="retro-projects-title">My Publications</div>
+
+    <div class="retro-health-bar">
+        <div class="health-fill" id="health-fill"></div>
+    </div>
+
+    <div class="retro-publication-list" id="publication-container"></div>
+
+    <button id="back-skills-btn" class="retro-button">Return</button>
+
+    <!-- Music GIF floating on the edge -->
+    <img src="images/music-player.gif" alt="Music Player" class="floating-music-gif">
+</div>
+
+
+<!-- Skills Expanded View -->
+<div id="skills-expanded" class="retro-expanded" style="display: none;">
+  <h2>🧠 SKILLS</h2>
+  <div id="coin-background"></div>
+
+  <div class="skill-grid">
+
+    <!-- 1. Research -->
+    <div class="skill-box">
+      <div class="skill-box-title">🔬 Research</div>
+      <div class="skill-entry">📐 Subspaces <span class="skill-bar"><div class="fill green" style="width: 95%"></div></span></div>
+      <div class="skill-entry">🎥 Motion <span class="skill-bar"><div class="fill green" style="width: 92%"></div></span></div>
+      <div class="skill-entry">🤖 Generative AI <span class="skill-bar"><div class="fill green" style="width: 90%"></div></span></div>
+    </div>
+
+    <!-- 2. AI Skills -->
+    <div class="skill-box">
+      <div class="skill-box-title">🤖 AI & Machine Learning</div>
+      <div class="skill-entry">🔥 PyTorch <span class="skill-bar"><div class="fill green" style="width: 95%"></div></span></div>
+      <div class="skill-entry">🧩 Transformers <span class="skill-bar"><div class="fill green" style="width: 85%"></div></span></div>
+      <div class="skill-entry">🤗 HuggingFace <span class="skill-bar"><div class="fill yellow" style="width: 70%"></div></span></div>
+      <div class="skill-entry">🔶 TensorFlow <span class="skill-bar"><div class="fill yellow" style="width: 65%"></div></span></div>
+    </div>
+
+    <!-- 3. Programming Skills -->
+    <div class="skill-box">
+      <div class="skill-box-title">💻 Programming</div>
+      <div class="skill-entry">🐍 Python <span class="skill-bar"><div class="fill green" style="width: 95%"></div></span></div>
+      <div class="skill-entry">📊 MATLAB <span class="skill-bar"><div class="fill green" style="width: 90%"></div></span></div>
+      <div class="skill-entry">⚡ JavaScript <span class="skill-bar"><div class="fill yellow" style="width: 75%"></div></span></div>
+      <div class="skill-entry">💠 C++ <span class="skill-bar"><div class="fill yellow" style="width: 65%"></div></span></div>
+    </div>
+
+
+    <!-- 4. Web & Data -->
+    <div class="skill-box">
+      <div class="skill-box-title">🌐 Web & Extra</div>
+      <div class="skill-entry">⚡ JavaScript <span class="skill-bar"><div class="fill yellow" style="width: 70%"></div></span></div>
+      <div class="skill-entry">🧮 SQL <span class="skill-bar"><div class="fill green" style="width: 75%"></div></span></div>
+      <div class="skill-entry">📄 LaTeX <span class="skill-bar"><div class="fill green" style="width: 85%"></div></span></div>
+    </div>
+  </div>
+
+  <!-- Return Button -->
+  <button id="back-skills-btn-1" class="retro-button-1">Return</button>
+</div>
+
+
+  
+  
+
+<!-- Retro Contact Expanded View -->
+
+<div id="contact-expanded" class="contact-expanded" style="display: none;">
+  <div class="envelope-wrapper">
+    <img src="images/pigeon.gif" alt="Pigeon" class="retro-pigeon" />
+
+    <div class="envelope-expanded">
+      <h1 class="retro-contact-text">Contact Me</h1>
+      <p class="retro-contact-text"> Email: <a href="mailto:ibrahimkajo@hotmail.com">ibrahimkajo@hotmail.com</a></p>
+      <p class="retro-contact-text"> Email-pro: <a href="mailto:ibrahim.kajo@utbm.fr">ibrahim.kajo@utbm.fr</a></p>
+      <p class="retro-contact-text"> <a href="https://scholar.google.com/citations?hl=en&user=epi5TKAAAAAJ&view_op=list_works/">Google Scholar</a></p>
+      <p class="retro-contact-text_1"> Let’s connect like it’s 1989 👾</p>
+
+      <!-- Stamps -->
+      <img src="images/stamp_lattakia_1.png" class="retro-stamp" alt="stamp">
+      <img src="images/stamp_lattakia.png" class="retro-stamp_3" alt="stamp">
+      <img src="images/stamp_Montbeliard.png" class="retro-stamp_2" alt="stamp">
+      <img src="images/stamp_montbeliard_2.png" class="retro-stamp_1" alt="stamp">
+      <img src="images/stamp_malaysia.png" class="retro-stamp_4" alt="stamp">
+      <img src="images/stamp_malaysia_1.png" class="retro-stamp_5" alt="stamp">
+      <button id="back-btn-1" class="retro-return-btn-1">⮐ RETURN</button>
+    </div>
+  </div> 
+</div>
+
+<body class="credits-page">
+  <div id="credits-expanded" style="display: none;">
+    <h2>Credits</h2>
+    <div id="credits-list"></div>
+    <button id="back-btn-credits" class="retro-return-btn-1">⮐ RETURN</button>
+  </div>
+</body>
+
+
+
+
+
+
+
+<audio id="buzz-sfx" src="sounds/8-bit-game-sfx-sound-26-269962.mp3" preload="auto" loop></audio>
+<audio id="collision-sfx" src="sounds/mario-coin-200bpm-82548.mp3" preload="auto"></audio>
+<audio id="jump-sfx" src="sounds/retro-jump-1-236684.mp3" preload="auto"></audio>
+<audio id="Publication-sfx" src="sounds/suits-you-69233.mp3" preload="auto" loop></audio>
+<audio id="crash-sfx" src="sounds/crash.mp3" preload="auto"></audio>
+<audio id="pigeon-sfx" src="sounds/pigeon-fly.mp3" preload="auto"></audio>
+<audio id="death-sfx" src="sounds/videogame-death.mp3" preload="auto"></audio>
+</body>
+</html>

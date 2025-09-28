@@ -1,0 +1,1481 @@
+/* BASIC RESET */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* GAME CONTAINER */
+#game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* PIXEL MAP */
+#pixel-map {
+    width: 1200px;
+    height: 400px;
+    position: relative;
+    border: 4px solid #444;
+
+    /* Sky background */
+    background: linear-gradient(to bottom, rgb(26, 155, 241) 0%, #87cefa 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.mario-ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-image: url('images/ground.png'); /* ← Use a tileable brick texture */
+    background-repeat: repeat-x;
+    background-size: 50px 40px;
+    border-top: 2px solid #333;
+}
+
+.mario-pipe {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/pipe_2.png'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 1;
+}
+
+.mario-pipe_long {
+    position: absolute;
+    width: 450px;
+    height: 150px;
+    background-image: url('images/pipe_4.png'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 1;
+}
+
+.mario-flower {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background-image: url('images/flower_1.gif'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 1;
+}
+
+.pointer-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pointer-text {
+  font-family: 'Press Start 2P', monospace; /* Pixel retro font */
+  font-size: 6px;
+  color: #fff;
+  background: #000;
+  padding: 4px 6px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  image-rendering: pixelated;
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 0 #888;
+}
+
+/* Pointer styles (yours) */
+.box-pointer {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-image: url('images/pointer_1.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  opacity: 1;
+}
+
+.mario-pipe-gif {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/pipe-gif.gif'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 1;
+}
+
+.mario-cloud {
+    position: absolute;
+    width: 128px;
+    height: 64px;
+    background-image: url('images/cloud.png'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 0.8;
+}
+
+.mario-cloud_2 {
+    position: absolute;
+    width: 128px;
+    height: 64px;
+    background-image: url('images/cloud_2.png'); /* Use pixelated cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    opacity: 0.8;
+}
+
+#pixel-map::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* CHARACTER */
+/* Base sprite – always centred */
+#character  {
+    width: 64px;
+    height: 104px;
+    background-image: url('images/mario_sprite_3.png');
+    background-position: -30px -448px;
+    background-size: auto;
+    image-rendering: pixelated;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    transform-origin: center; 
+}
+
+/*#character::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}*/
+
+.mario-cloud {
+    z-index: 1;
+}
+
+.mario-cloud_2 {
+    z-index: 1;
+}
+
+.mario-ground {
+    z-index: 1;
+}
+
+.mario-pipe {
+    z-index: 2;
+}
+
+#character,
+.section-marker {
+    z-index: 1;
+}
+
+/* SECTION MARKERS */
+.section-marker {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: rgba(0, 100, 255, 0.3);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+/* POSITION MARKERS */
+#about-marker { top: 100px; left: 450px; }
+#skills-marker { top: 100px; left: 600px; }
+#projects-marker { top: 100px; left: 750px; }
+#contact-marker { top: 100px; left: 900px; }
+#credits-marker { top: 50px; left: 1080px; }
+
+/* CONTROLS HINT */
+#controls-hint {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  text-align: center;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.key-label {
+  background-color: #000;
+  color: #0f0;
+  padding: 2px 4px;
+  border: 1px solid #0f0;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 13px;
+}
+
+/* PORTFOLIO SECTIONS */
+section {
+    display: none;
+    position: relative;
+    z-index: 1;
+    margin-top: 100vh; /* Push below game container */
+    padding: 2rem;
+}
+
+section.active {
+    display: block;
+}
+
+/* NAVIGATION */
+#navbar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1001;
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    background: rgba(0,0,0,0.7);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Retro Popup */
+/* Main popup wrapper */
+#retro-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a;
+    border: 4px solid #FFD700; /* Mario-style gold */
+    box-shadow: 0 0 0 2px #000, 0 0 8px #FFD700 inset;
+    z-index: 1000;
+    padding: 20px;
+    width: 320px;
+    font-family: 'Press Start 2P', monospace;
+    color: #fff;
+    display: none;
+    animation: popupFadeIn 0.3s ease-out;
+  }
+  
+  /* Optional CRT scanlines */
+  #retro-popup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 3px
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* Inner content */
+  .popup-content {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+  
+  #retro-popup h3 {
+    color: #FFD700;
+    text-shadow: 1px 1px #000;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  #retro-popup p {
+    font-size: 11px;
+    color: #ccc;
+    text-shadow: 1px 1px #000;
+  }
+  
+  
+  /* Button container layout */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  /* Pixel buttons */
+  .pixel-button {
+    padding: 6px 10px;
+    border: 2px solid #ccc;
+    background-color: #333;
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: inset -2px -2px 0 #111, inset 2px 2px 0 #555;
+    transition: all 0.1s ease;
+  }
+  
+  .pixel-button:hover,
+  .pixel-button.active {
+    background-color: #FFD700;
+    color: #000;
+    box-shadow: inset -2px -2px 0 #a87c00, inset 2px 2px 0 #fff;
+  }
+
+  .active-setting {
+  outline: 2px solid #fff;
+  background-color: #222;
+  }
+  
+  @keyframes popupFadeIn {
+    from {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+/* Expanded View */
+.expanded-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2001;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+.expanded-content {
+    background: #2d2d2d;
+    border: 4px solid #d3ff33;
+    padding: 2rem;
+    width: 80%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.about-details {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: center;
+}
+
+.profile-photo-large {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff3366;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.retro-setting-line {
+    font-family: 'Press Start 2P', monospace;
+    color: #33FF33;
+    background-color: #111;
+    padding: 8px 16px;
+    margin: 6px 0;
+    border: 1px solid #44ff44;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.setting-label {
+    flex-shrink: 0;
+    color: #FFDD33;
+}
+
+.setting-arrow {
+    cursor: pointer;
+    padding: 2px 8px;
+    color: #00FFFF;
+    background: #222;
+    border: 1px solid #00FFFF;
+    transition: background 0.2s;
+}
+
+.setting-arrow:hover {
+    background: #00ffff55;
+}
+
+.setting-value {
+    font-weight: bold;
+    min-width: 180px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border-bottom: 1px dashed #fff;
+}
+
+.personal-info {
+    margin-top: 1rem;
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    border-left: 4px solid #ff3366;
+}
+
+.retro-about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #39ff14;
+    background-color: #1e1e1e;
+    padding: 12px;
+    border: 2px solid #888;
+    box-shadow: inset 0 0 0 2px #000;
+  }
+  
+  .setting-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .setting-arrow {
+    cursor: pointer;
+    padding: 0 6px;
+    color: #FFD700;
+    font-size: 14px;
+    transition: transform 0.1s;
+  }
+  
+  .setting-arrow:hover {
+    transform: scale(1.2);
+    color: #FFF;
+  }
+  
+  .label {
+    width: 160px;
+    display: inline-block;
+  }
+
+  .return-button-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  
+
+/* Button Navigation */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.pixel-button.active {
+    background: white;
+    color: #ff3366;
+    box-shadow: 0 0 10px white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-details {
+        flex-direction: column;
+    }
+    .profile-photo-large {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Button Navigation - Changed to vertical */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.pixel-button {
+    min-width: 180px;
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
+    width: 150px;
+    text-align: center;
+}
+
+/* Expanded View Back Button */
+#back-btn {
+    margin-top: 2rem;
+    display: block;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Retro About Marker */
+/* Retro Question Mark Box Marker */
+#about-marker {
+    width: 60px;
+    height: 60px;
+    position: absolute; /* or relative depending on your layout */
+    background-image: url('images/box_8bits.png'); /* Replace with actual path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    outline: none;
+}
+
+/* Retro Pixel Text Label */
+.about-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace; /* optional retro font */
+    font-size: 10px;
+    color: #fc0303;
+    text-shadow:
+        2px 2px 0 #0000004b,
+        -1px -1px 0 #eaff00,
+        1px -1px 0 #eaff00,
+        -1px 1px 0 #eaff00,
+        1px 1px 0 #eaff00;
+    animation: flicker 0.5s infinite alternate;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+/* Retro Content Box */
+.retro-about-box {
+    background: #1a1a1a;
+    border: 4px solid #fab026;
+    box-shadow: 
+        0 0 0 2px #000,
+        0 0 0 6px #fab026,
+        0 0 0 8px #000;
+    padding: 16px;
+    position: relative;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Pixel grid overlay */
+.retro-about-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(255,51,102,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,51,102,0.1) 1px, transparent 1px);
+    background-size: 8px 8px;
+    pointer-events: none;
+}
+
+/* Retro title */
+.retro-about-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Retro text */
+.retro-about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #14fff3;
+    background-color: #1e1e1e;
+    padding: 12px;
+    border: 2px solid #888;
+    box-shadow: inset 0 0 0 2px #000;
+}
+
+/* Pixel Avatar Styles */
+.pixel-avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pixel-avatar {
+    image-rendering: pixelated;
+    border: 2px solid #666;
+    background-color: #111;
+}
+
+
+@keyframes flicker {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+
+/* Retro Skill Marker */
+#skills-marker {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-image: url('images/box_8bits.png'); /* Same box as about */
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    outline: none;
+}
+
+/* Skills floating label (like ABOUT) */
+.skills-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #e8fd00;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #8533ff,
+        1px -1px 0 #eb33ff,
+        -1px 1px 0 #ff33f8,
+        1px 1px 0 #f833ff;
+    animation: flicker 0.5s infinite alternate;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+#projects-marker {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-image: url('images/box_8bits.png'); /* Same box as about */
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    outline: none;
+}
+
+/* Skills floating label (like ABOUT) */
+.projects-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #fafafa;
+    text-shadow:
+        2px 2px 0 #f9c805,
+        -1px -1px 0 #33daff,
+        1px -1px 0 #ff8533,
+        -1px 1px 0 #ff8533,
+        1px 1px 0 #ff8533;
+    animation: flicker 0.5s infinite alternate;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+.floating-music-gif {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 90px; /* Adjust based on your GIF size */
+    image-rendering: pixelated;
+    z-index: 999;
+    pointer-events: none;
+    animation: bob 2s ease-in-out infinite;
+}
+
+/* Optional: Retro bobbing animation */
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+.retro-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    color: rgb(0, 229, 255);
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Grid layout for 2x2 arrangement */
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Each box */
+.skill-box {
+  position: relative;
+  border: 2px solid white;
+  padding: 1.5rem 1rem 1rem;
+  background-color: black;
+  width: 45%;
+  min-width: 300px;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Overlapping title label */
+.skill-box-title {
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  background: black;
+  padding: 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+/* Skills + progress */
+.skill-entry {
+  margin: 0.6rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.skill-bar {
+  display: inline-block;
+  width: 60%;
+  height: 12px;
+  border: 1px solid white;
+  background: black;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.skill-bar .fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.green {
+  background-color: #61d84f;
+}
+.yellow {
+  background-color: #ffdc4a;
+}
+
+  #coin-background {
+    position: fixed;
+    background: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* So it doesn't block mouse clicks */
+    z-index: -1; /* Behind all content */
+    overflow: hidden;
+  }
+  
+  .coin {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    animation: floatCoin 20s linear infinite;
+    image-rendering: pixelated;
+  }
+  
+  @keyframes floatCoin {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+
+
+/* Retro title */
+.retro-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+  }
+  
+  /* Pixelated skill grid */
+  .skills-grid-pixel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    padding: 10px;
+    font-family: 'Press Start 2P', monospace;
+  }
+  
+  /* Each skill block */
+  .skill-item {
+    background-color: #2b2b2b;
+    color: #32ff8f;
+    border: 2px solid #32ff8f;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    box-shadow: 3px 3px #000;
+    border-radius: 4px;
+    transition: transform 0.1s ease;
+    position: relative; /* Tooltip will be positioned relative to this */
+    z-index: 2;          /* Just above the cluster background */
+  }
+  
+  .skill-item:hover {
+    background-color: #1f1f1f;
+    transform: scale(1.05);
+    cursor: crosshair;
+  }
+ 
+
+.retro-button {
+    font-family: 'Press Start 2P', monospace;
+    padding: 10px 20px;
+    background: #222;
+    border: 2px solid #0f0;
+    color: #0f0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: none;
+}
+
+.retro-button:hover {
+    background: #0f0;
+    color: #000;
+}
+
+
+  /* Button retro style */
+  .retro-button-1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+    color: #ffff32;
+    background-color: #000;
+    border: 2px solid #ffff32;
+    text-shadow: 1px 1px #000;
+    box-shadow: 3px 3px #ffff32;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+.retro-button-.retro-button-1 {
+    background: rgb(255, 255, 0);
+    color: #000;
+}
+
+/* Retro Contact Marker */
+#contact-marker {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-image: url('images/box_8bits.png'); /* Same box as about */
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    outline: none;
+}
+
+/* Skills floating label (like ABOUT) */
+.contact-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #151414;
+    text-shadow:
+        2px 2px 0 #f2eded,
+        -1px -1px 0 #36ff33,
+        1px -1px 0 #36ff33,
+        -1px 1px 0 #36ff33,
+        1px 1px 0 #36ff33;
+    animation: flicker 0.5s infinite alternate;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+
+
+.retro-projects-title {
+    font-size: 18px;
+    color: #33ccff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.retro-health-bar {
+    width: 320px;
+    height: 24px;
+    background: #000;
+    border: 4px solid #33ccff;
+    box-shadow: 
+        0 0 0 2px #000,
+        0 0 0 6px #33ccff,
+        0 0 0 8px #000;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    width: 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        #33cc33,
+        #33cc33 8px,
+        #28a428 8px,
+        #28a428 16px
+    );
+    transition: width 30s ease;
+    image-rendering: pixelated;
+}
+
+.retro-publication-list {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    max-height: 300px;
+    overflow-y: auto;
+    line-height: 1;
+    width: 90%;
+    text-align: left; /* Align text to the left */
+    padding: 0 20px;
+}
+
+.publication-entry {
+    margin-bottom: 10px; /* Spacing between publications */
+}
+
+.retro-doi-button {
+    font-size: 8px;
+    font-family: 'Press Start 2P', monospace;
+    background-color: #111;
+    color: #0f0;
+    border: 2px solid #0f0;
+    padding: 4px 8px;
+    margin-top: 1px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    line-height: 1;
+}
+
+.retro-doi-button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+#publication-container {
+    scrollbar-width: thin;
+    scrollbar-color: #FFD700 #222;
+    overflow-y: auto;
+    max-height: 400px; /* adjust depending on your layout */
+    padding-right: 10px;
+}
+
+/* For WebKit-based browsers */
+#publication-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+#publication-container::-webkit-scrollbar-track {
+    background: #222;
+    border: 1px solid #555;
+}
+
+#publication-container::-webkit-scrollbar-thumb {
+    background-color: #FFD700;
+    border: 2px solid #222;
+    border-radius: 0;
+}
+
+.about-setting {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    gap: 8px;
+    padding: 4px 0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: 1px dashed #444;
+    text-align: center;
+  }
+  
+  .about-setting .arrow {
+    cursor: pointer;
+    color: #FFD700;
+  }
+  
+  .about-setting .value {
+    display: inline-block;
+    width: 360px; /* Fixed width - adjust as needed */
+    text-align: center;
+    color: #00e7fc;
+    white-space: nowrap;
+  }
+  
+  .about-setting.active-setting {
+    background-color: #222;
+    outline: 1px solid #FFD700;
+  }
+  
+
+
+#contact-expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: black;
+  z-index: 2;
+}
+
+.envelope-wrapper {
+  position: relative; /* ⬅️ Needed so pigeon & stamp are anchored here */
+  width: 90%;
+  max-width: 1100px;
+}
+
+.envelope-expanded {
+  padding: 100px;
+  border: 16px solid transparent;
+  border-image: 16 repeating-linear-gradient(
+    -45deg,
+    red 0,
+    red 15px,
+    transparent 0,
+    transparent 30px,
+    #58a 0,
+    #58a 47px,
+    transparent 0,
+    transparent 60px
+  );
+
+  background-color: #fff;
+  font: 100%/1.6 'Baskerville', 'Palatino', serif;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1;
+
+  overflow-y: auto;
+  max-height: 1100px;
+}
+
+.retro-contact-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: white;
+  line-height: 0.5;
+  max-width: 50%;
+  letter-spacing: 1px;
+  background-color: #58a;
+  border: 2px dashed #000;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.retro-contact-text_1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #f7fb00;
+  line-height: 0.5;
+  max-width: 50%;
+  letter-spacing: 1px;
+  background-color: #58a;
+  border: 2px dashed #000;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.retro-contact-text a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid #58a;
+}
+
+.retro-contact-text a:hover {
+  background-color: red;
+  color: #fff;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.retro-return-btn-1 {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background-color: #ec3d07;
+  border: 3px solid #000;
+  padding: 7px 12px;
+  box-shadow: 4px 4px 0px #000;
+  color: #000;
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+
+.retro-return-btn:hover {
+  background-color: #000;
+  color: #ffcc00;
+}
+
+
+
+.retro-pigeon {
+  position: absolute;
+  top: -120px;
+  left: -20px; /* Start off-screen */
+  height: 150px;
+  image-rendering: pixelated;
+  z-index: 3;
+  cursor: pointer; /* Optional: show pointer when hovering */
+}
+
+@keyframes flyAway {
+0% {
+    transform: translate(0, 0%);
+}
+100% {
+    transform: translateX(60vw) translateY(-60%);
+    opacity: 0;
+}
+}
+
+.fly-away {
+animation: flyAway 7s ease-in-out forwards;
+}
+
+
+.retro-stamp {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 180px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.retro-stamp_1 {
+  position: absolute;
+  top: 38px;
+  right: 170px;
+  width: 140px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.retro-stamp_2 {
+  position: absolute;
+  top: 200px;
+  right: 170px;
+  width: 140px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.retro-stamp_3 {
+  position: absolute;
+  top: 170px;
+  right:5px;
+  width: 200px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.retro-stamp_4 {
+  position: absolute;
+  top: 30px;;
+  right: 300px;
+  width: 150px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.retro-stamp_5 {
+  position: absolute;
+  top: 180px;
+  right: 280px;
+  width: 200px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+#credits-marker {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-image: url('images/box_8bits.png'); /* Same box as about */
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;               /* invisible */
+    pointer-events: none;     /* doesn’t catch mouse events */
+    align-items: flex-end;
+    justify-content: center;
+    outline: none;
+}
+
+.credits-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #f704b7,
+        1px -1px 0 #f704b7,
+        -1px 1px 0 #f704b7,
+        1px 1px 0 #f704b7;
+    animation: flicker 0.5s infinite alternate;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+#credits-expanded {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 20px;
+  border: 3px solid #fff;
+  border-radius: 8px;
+  z-index: 10000;
+  font-family: 'Press Start 2P', monospace;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 750px;       /* increase width */
+  height: 650;       /* let it grow vertically */
+  max-height: 80vh;   /* avoid exceeding screen height */
+    border: 8px solid white; /* solid single color border */
+    image-rendering: pixelated; /* crisp pixel look */
+    box-shadow: 0 0 0 4px black; /* extra retro depth */
+}
+
+#credits-expanded h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.credit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.credit-row img {
+  width: 32px;
+  height: 32px;
+}
+
+.hidden {
+  display: none;
+}
+
+.retro-return-btn-1 {
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive; /* example retro font */
+  background-color: #222;
+  color: #eee;
+  border: 2px solid #eee;
+  padding: 8px 16px;
+  margin-top: 20px;
+}
+
+body.credits-page {
+  margin: 0;
+  min-height: 100vh;
+  background: 
+    linear-gradient(
+      -25deg,
+      /* White starting gap (optional) */
+      black 0%,
+      black 40%,
+      /* Line 1 - Red (thick) */
+      #00fbff 40%,
+      #00fbff 45%,
+      /* Small white gap */
+      black 45%,
+      black 46%,
+      /* Line 2 - Orange (thick) */
+      rgb(8, 249, 93) 46%,
+      rgb(8, 249, 93) 51%,
+      /* Small white gap */
+      black 51%,
+      black 52%,
+      /* Line 3 - Blue (thick) */
+      orange 52%,
+      orange 57%,
+      /* Small white gap */
+      black 57%,
+      black 58%,
+      /* Line 4 - Green (thick) */
+      red 58%,
+      red 63%,
+      /* Large white space after (ensures no repeat) */
+      black 61%,
+      black 100%
+    );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+
+
