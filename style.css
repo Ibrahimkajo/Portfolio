@@ -752,7 +752,7 @@ section.active {
     transform: translateX(-50%);
     font-family: 'Press Start 2P', monospace;
     font-size: 10px;
-    color: #fafafa;
+    color: #131313;
     text-shadow:
         2px 2px 0 #f9c805,
         -1px -1px 0 #33daff,
@@ -1474,6 +1474,7 @@ body.credits-page {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 
 
 
