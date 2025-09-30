@@ -1,6 +1,6 @@
 @article{chahi2025r2gan,
   title={R2GAN: Enhancing unseen image fusion with reconstruction-guided generative adversarial network: A. Chahi et al.},
-  author={Chahi, Abderrazak and Kas, Mohamed and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Chahi Abderrazak, Kas Mohamed, Kajo Ibrahim, and Ruichek Yassine},
   journal={Applied Intelligence},
   volume={55},
   number={11},
@@ -12,7 +12,7 @@
 
 @article{kajo2024no,
   title={No-reference quality evaluation of realistic hazy images via singular value decomposition},
-  author={Kajo, Ibrahim and Chahi, Abderrazak and Kas, Mohamed and Ruichek, Yassine},
+  author={Kajo Ibrahim, Chahi Abderrazak, Kas Mohamed, and Ruichek Yassine},
   journal={Neurocomputing},
   volume={610},
   pages={128574},
@@ -23,7 +23,7 @@
 
 @article{kajo2024end,
   title={End-to-end Inception-Unet based Generative Adversarial Networks for Snow and Rain Removals},
-  author={Kajo, Ibrahim and Kas, Mohamed and Ruichek, Yassine},
+  author={Kajo Ibrahim, Kas Mohamed, and Ruichek, Yassine},
   journal={arXiv preprint arXiv:2411.04821},
   year={2024}
   DOI={https://doi.org/10.48550/arXiv.2411.04821}
@@ -31,7 +31,7 @@
 
 @article{kajo2024subspace,
   title={Subspace-guided GAN for realistic single-image dehazing scenarios},
-  author={Kajo, Ibrahim and Kas, Mohamed and Chahi, Abderrazak and Ruichek, Yassine},
+  author={Kajo Ibrahim, Kas Mohamed, Chahi Abderrazak, and Ruichek Yassine},
   journal={Neural Computing and Applications},
   volume={36},
   number={27},
@@ -43,7 +43,7 @@
 
 @article{kas2024eigengan,
   title={EigenGAN: An SVD subspace-based learning for image generation using Conditional GAN.},
-  author={Kas, Mohamed and Chahi, Abderrazak and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Kas Mohamed, Chahi Abderrazak, Kajo Ibrahim, and Ruichek Yassine},
   journal={Knowl. Based Syst.},
   volume={293},
   pages={111691},
@@ -54,7 +54,7 @@
 
 @article{kas2024dll,
   title={DLL-GAN: Degradation-level-based learnable adversarial loss for image enhancement},
-  author={Kas, Mohamed and Chahi, Abderrazak and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Kas Mohamed, Chahi Abderrazak, Kajo Ibrahim, Ruichek Yassine},
   journal={Expert Systems with Applications},
   volume={237},
   pages={121666},
@@ -65,7 +65,7 @@
 
 @article{chahi2024mfgan,
   title={MFGAN: towards a generic multi-kernel filter based adversarial generator for image restoration},
-  author={Chahi, Abderrazak and Kas, Mohamed and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Chahi Abderrazak, Kas Mohamed, Kajo Ibrahim, and Ruichek Yassine},
   journal={International Journal of Machine Learning and Cybernetics},
   volume={15},
   number={3},
@@ -77,7 +77,7 @@
 
 @inproceedings{kajo2023history,
   title={History Based Incremental Singular Value Decomposition for Background Initialization and Foreground Segmentation},
-  author={Kajo, Ibrahim and Ruichek, Yassine and Kamel, Nidal},
+  author={Kajo Ibrahim, Ruichek Yassine, Kamel Nidal},
   booktitle={Iberoamerican Congress on Pattern Recognition},
   pages={63--75},
   year={2023},
@@ -87,7 +87,7 @@
 
 @article{kajo2023learning,
   title={Learning by competing: Competitive multi-generator based adversarial learning},
-  author={Kajo, Ibrahim and Kas, Mohamed and Chahi, Abderrazak and Ruichek, Yassine},
+  author={Kajo Ibrahim, Kas Mohamed, Chahi Abderrazak, and Ruichek Yassine},
   journal={Applied Soft Computing},
   volume={146},
   pages={110698},
@@ -98,7 +98,7 @@
 
 @article{kajo2023tensor,
   title={Tensor based completion meets adversarial learning: a win--win solution for change detection on unseen videos},
-  author={Kajo, Ibrahim and Kas, Mohamed and Ruichek, Yassine and Kamel, Nidal},
+  author={Kajo Ibrahim, Kas Mohamed, Ruichek Yassine, and Kamel Nidal},
   journal={Computer Vision and Image Understanding},
   volume={226},
   pages={103584},
@@ -109,7 +109,7 @@
 
 @article{bekhouche2022spatiotemporal,
   title={Spatiotemporal CNN with Pyramid Bottleneck Blocks: Application to eye blinking detection},
-  author={Bekhouche, Salah Eddine and Kajo, Ibrahim and Ruichek, Yassine and Dornaika, Fadi},
+  author={Bekhouche Salah Eddine, Kajo Ibrahim, Ruichek Yassine, and Dornaika Fadi},
   journal={Neural Networks},
   volume={152},
   pages={150--159},
@@ -120,7 +120,7 @@
 
 @article{kas2022coarse,
   title={Coarse-to-fine SVD-GAN based framework for enhanced frame synthesis},
-  author={Kas, Mohamed and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Kas Mohamed, Kajo Ibrahim, and Ruichek Yassine},
   journal={Engineering Applications of Artificial Intelligence},
   volume={110},
   pages={104699},
@@ -131,7 +131,7 @@
 
 @article{kajo2021frequency,
   title={Frequency-aware SVD decomposition and its application to color magnification and motion denoising},
-  author={Kajo, Ibrahim and Kamel, Nidal and Ruichek, Yassine and Al-Ahdal, Abdulrahman},
+  author={Kajo Ibrahim, Kamel Nidal, Ruichek Yassine, and Al-Ahdal Abdulrahman},
   journal={IEEE Access},
   volume={9},
   pages={108832--108845},
@@ -142,7 +142,7 @@
 
 @article{kajo2020tensor,
   title={Tensor-based approach for background-foreground separation in maritime sequences},
-  author={Kajo, Ibrahim and Kamel, Nidal and Ruichek, Yassine},
+  author={Kajo Ibrahim, Kamel Nidal, Ruichek Yassine},
   journal={IEEE Transactions on Intelligent Transportation Systems},
   volume={22},
   number={11},
@@ -154,7 +154,7 @@
 
 @article{kajo2019self,
   title={Self-motion-assisted tensor completion method for background initialization in complex video sequences},
-  author={Kajo, Ibrahim and Kamel, Nidal and Ruichek, Yassine},
+  author={Kajo Ibrahim, Kamel Nidal, and Ruichek Yassine},
   journal={IEEE Transactions on Image Processing},
   volume={29},
   pages={1915--1928},
@@ -165,7 +165,7 @@
 
 @article{kamel2019visual,
   title={On visual periodicity estimation using singular value decomposition},
-  author={Kamel, Nidal and Kajo, Ibrahim and Ruichek, Yassine},
+  author={Kamel Nidal, Kajo Ibrahim, and Ruichek Yassine},
   journal={Journal of Mathematical Imaging and Vision},
   volume={61},
   number={8},
@@ -177,7 +177,7 @@
 
 @article{kajo2018incremental,
   title={Incremental tensor-based completion method for detection of stationary foreground objects},
-  author={Ibrahim Kajo, Nidal Kamel, and Yassine Ruichek},
+  author={Kajo Ibrahim, Kamel Nidal, and Ruichek Yassine},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
   volume={29},
   number={5},
@@ -189,7 +189,7 @@
 
 @article{kajo2018svd,
   title={SVD-based tensor-completion technique for background initialization},
-  author={Ibrahim Kajo, Nidal Kamel, and Yassine Ruichek},
+  author={Kajo Ibrahim, Kamel Nidal, and Ruichek Yassine},
   journal={IEEE Transactions on Image Processing},
   volume={27},
   number={6},
@@ -201,7 +201,7 @@
 
 @article{kajo2018adaptive,
   title={An adaptive block-based matching algorithm for crowd motion sequences},
-  author={Kajo, Ibrahim and Kamel, Nidal and Malik, Aamir Saeed},
+  author={Kajo Ibrahim and Kamel Nidal, Malik Aamir Saeed},
   journal={Multimedia Tools and Applications},
   volume={77},
   number={2},
@@ -213,7 +213,7 @@
 
 @inproceedings{kajo2016evaluation,
   title={An evaluation of optical flow algorithms for crowd analytics in surveillance system},
-  author={Kajo, Ibrahim and Malik, Aamir Saeed and Kamel, Nidal},
+  author={Kajo Ibrahim, Malik Aamir Saeed, and Kamel Nidal},
   booktitle={2016 6th International conference on intelligent and advanced systems (ICIAS)},
   pages={1--6},
   year={2016},
@@ -223,7 +223,7 @@
 
 @inproceedings{kajo2015motion,
   title={Motion estimation of crowd flow using optical flow techniques: A review},
-  author={Ibrahim Kajo, Nidal Kamel, and Yassine Ruichek},
+  author={Kajo Ibrahim, Malik Aamir Saeed, and Kamel Nidal},
   booktitle={2015 9th International Conference on Signal Processing and Communication Systems (ICSPCS)},
   pages={1--9},
   year={2015},
@@ -233,13 +233,14 @@
 
 @inproceedings{kajo2014adaptive,
   title={An adaptive motion estimation algorithm for irregular motion of objects},
-  author={Kajo, Ibrahim and Malik, Aamir Saeed and Kamel, Nidal},
+  author={Kajo Ibrahim and Malik Aamir Saeed, and Kamel Nidal},
   booktitle={The 18th IEEE International Symposium on Consumer Electronics (ISCE 2014)},
   pages={1--2},
   year={2014},
   organization={IEEE}
   DOI={10.1109/ISCE.2014.6884365}
 }
+
 
 
 
